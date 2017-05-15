@@ -3,6 +3,11 @@ package br.com.senai.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Cidade implements Serializable {
 
 	private static final long serialVersionUID = -1194548848448725327L;
@@ -14,6 +19,8 @@ public class Cidade implements Serializable {
 	private boolean active = true;
 	private Date lastUpdae = new Date();
 
+	@Id
+	@GeneratedValue
 	public Integer getId() {
 		return id;
 	}

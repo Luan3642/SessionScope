@@ -12,7 +12,7 @@
 <h:body>
 
 	<h:form>
-		<p:panel header="Cadastro de Cidade">
+		<p:panel header="Cadastro de Cidade" id="pnl">
 			<p:panelGrid columns="2">
 
 				<p:outputLabel value="Data de Cadastro" id="datacadastro" />
@@ -36,7 +36,7 @@
 
 				<p:outputLabel />
 				<p:commandButton value="Salvar" action="#{cidadeBean.salvar}"
-					update="@form" icon="ui-icon-disk" />
+					update="@form" icon="ui-icon-disk" id="saveBtn" />
 
 			</p:panelGrid>
 		</p:panel>

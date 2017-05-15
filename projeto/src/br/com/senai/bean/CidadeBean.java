@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import br.com.senai.dao.CidadeDAO;
 import br.com.senai.model.Cidade;
 import br.com.senai.model.Estado;
 
@@ -22,6 +23,7 @@ public class CidadeBean {
 
 	public String salvar() {
 		cidades.add(cidade);
+		new CidadeDAO().salvar(cidade);
 		cidade = new Cidade();
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cidade salva com sucesso!"));
 		return "cidade_list?faces-redirect=true;";
