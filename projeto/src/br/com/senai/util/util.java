@@ -7,12 +7,6 @@ public class util {
 	
 	public static void main(String[] args) {
 		
-		CidadeBean cidadeBean = new CidadeBean();
-		
-		for (Cidade cidades: cidadeBean.cidades) {
-			System.out.println(cidades.getNomeCidade()+"\n");
-		}
-		
 	}
 	
 }

@@ -16,17 +16,22 @@ import br.com.senai.model.Estado;
 @ManagedBean
 @SessionScoped
 public class CidadeBean {
-	
+
 	private Cidade cidade = new Cidade();
 	private List<Estado> estados = Arrays.asList(Estado.values());
-	public List<Cidade> cidades = new ArrayList<Cidade>();
+	private List<Cidade> cidades = new ArrayList<Cidade>();
+
+	public CidadeBean() {
+		cidades = new CidadeDAO().listarcidades();
+	}
 
 	public String salvar() {
-		cidades.add(cidade);
+		// cidades.add(cidade);
 		new CidadeDAO().salvar(cidade);
+		cidades = new CidadeDAO().listarcidades();
 		cidade = new Cidade();
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cidade salva com sucesso!"));
-		return "cidade_list?faces-redirect=true;";
+		return "cidade_list?faces-redirect=true";
 	}
 
 	public Cidade getCidade() {

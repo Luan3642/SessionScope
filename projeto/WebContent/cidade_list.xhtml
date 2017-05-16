@@ -18,11 +18,12 @@
 		<p:panel header="Cadastro de Cidade">
 			<p:dataTable value="#{cidadeBean.cidades}" var="cidade"
 				emptyMessage="Ainda não temos registros para os critérios de busca">
-				<p:column headerText="Nome Cidade">
+				
+				<p:column headerText="Nome Cidade" sortBy="#{cidade.nomeCidade}">
 					<h:outputText value="#{cidade.nomeCidade}" />
 				</p:column>
 
-				<p:column headerText="UF" width="30" style="text-align:center;">
+				<p:column headerText="UF" width="200" style="text-align:center;" filterBy="#{cidade.estadoCidade.sigla}">
 					<h:outputText value="#{cidade.estadoCidade.sigla}" />
 				</p:column>
 
