@@ -23,7 +23,8 @@
 					<h:outputText value="#{cidade.nomeCidade}" />
 				</p:column>
 
-				<p:column headerText="UF" width="200" style="text-align:center;" filterBy="#{cidade.estadoCidade.sigla}">
+				<p:column headerText="UF" width="60" style="text-align:center;" 
+				filterBy="#{cidade.estadoCidade.sigla}" filterStyle="max-width: 40px; min-width: 40px;">
 					<h:outputText value="#{cidade.estadoCidade.sigla}" />
 				</p:column>
 
