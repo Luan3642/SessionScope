@@ -22,13 +22,13 @@ public class CidadeBean {
 	private List<Cidade> cidades = new ArrayList<Cidade>();
 
 	public CidadeBean() {
-		cidades = new CidadeDAO().listarcidades();
+		//cidades = new CidadeDAO().listarcidades();
 	}
 
 	public String salvar() {
-		// cidades.add(cidade);
-		new CidadeDAO().salvar(cidade);
-		cidades = new CidadeDAO().listarcidades();
+		cidades.add(cidade);
+		//new CidadeDAO().salvar(cidade);
+		//cidades = new CidadeDAO().listarcidades();
 		cidade = new Cidade();
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cidade salva com sucesso!"));
 		return "cidade_list?faces-redirect=true";

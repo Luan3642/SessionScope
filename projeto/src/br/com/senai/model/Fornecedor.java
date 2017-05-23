@@ -3,6 +3,11 @@ package br.com.senai.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Fornecedor implements Serializable {
 
 	private static final long serialVersionUID = 4218573019122278677L;
@@ -30,6 +35,8 @@ public class Fornecedor implements Serializable {
 	private boolean active = true;
 	private Date lastUpdate = new Date();
 
+	@Id
+	@GeneratedValue
 	public Long getId() {
 		return id;
 	}
