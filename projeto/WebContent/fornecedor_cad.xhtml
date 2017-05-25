@@ -12,6 +12,7 @@
 <h:body>
 
 	<h:form>
+		<p:growl />
 		<p:panel header="Cadastro de fornecedor">
 			<p:panelGrid columns="2">
 				<p:outputLabel value="Nome fantasia:" for="nomefantasia" />
@@ -106,7 +107,8 @@
 					requiredMessage="Preencha campo 'Data do cadastro:'"
 					value="#{fornecedorBean.fornecedor.cadastroFornecedor}" />
 
-				<p:commandButton value="salvar" action="#{fornecedorBean.salvar}"/>
+				<p:commandButton value="salvar" action="#{fornecedorBean.salvar}"
+					update="@form" icon="ui-icon-disk" id="saveBtn" />
 			</p:panelGrid>
 		</p:panel>
 	</h:form>

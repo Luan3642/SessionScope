@@ -15,7 +15,7 @@ import br.com.senai.model.Fornecedor;
 public class FornecedorBean {
 
 	private Fornecedor fornecedor = new Fornecedor();
-	private List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
+	public static List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
 	
 	public String salvar(){
 		fornecedores.add(fornecedor);
