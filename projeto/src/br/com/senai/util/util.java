@@ -8,9 +8,9 @@ import br.com.senai.model.Fornecedor;
 public class util {
 	
 	public static void main(String[] args) {
-		for (Fornecedor fornecedor : FornecedorBean.fornecedores) {
+		/*for (Fornecedor fornecedor : FornecedorBean.fornecedores) {
 			System.out.println("Nome: "+fornecedor.getFantasiaFornecedor()+"\n");
-		}
+		}*/
 	}
 	
 }

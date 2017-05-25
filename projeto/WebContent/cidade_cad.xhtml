@@ -11,10 +11,10 @@
 </h:head>
 <h:body>
 
+	<ui:include src="/menu.xhtml" />
+	
 	<h:form>
-	
-	<p:growl/>
-	
+		<p:growl id="growl" showDetail="true" sticky="true"/>
 		<p:panel header="Cadastro de Cidade" id="pnl" style="border: 0px">
 			<p:panelGrid columns="2">
 
@@ -39,15 +39,15 @@
 
 				<p:outputLabel />
 				<p:commandButton value="Salvar" action="#{cidadeBean.salvar}"
-					update="@form" icon="ui-icon-disk" id="saveBtn" />
+					update="growl" icon="ui-icon-disk" id="saveBtn"/>
 
 			</p:panelGrid>
 		</p:panel>
-		
+
 		<p:blockUI block="pnl" trigger="saveBtn">
 			<p:graphicImage value="#{resource['images:pageloader.gif']}" />
 		</p:blockUI>
-		
+
 	</h:form>
 
 </h:body>

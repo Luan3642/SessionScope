@@ -11,20 +11,21 @@
 </h:head>
 <h:body>
 
-	
+	<ui:include src="/menu.xhtml"/>
 
 	<h:form>
-	
+
 		<p:panel header="Cadastro de Cidade">
 			<p:dataTable value="#{cidadeBean.cidades}" var="cidade"
 				emptyMessage="Ainda não temos registros para os critérios de busca">
-				
+
 				<p:column headerText="Nome Cidade" sortBy="#{cidade.nomeCidade}">
 					<h:outputText value="#{cidade.nomeCidade}" />
 				</p:column>
 
-				<p:column headerText="UF" width="60" style="text-align:center;" 
-				filterBy="#{cidade.estadoCidade.sigla}" filterStyle="max-width: 40px; min-width: 40px;">
+				<p:column headerText="UF" width="60" style="text-align:center;"
+					filterBy="#{cidade.estadoCidade.sigla}"
+					filterStyle="max-width: 40px; min-width: 40px;">
 					<h:outputText value="#{cidade.estadoCidade.sigla}" />
 				</p:column>
 
@@ -43,6 +44,11 @@
 
 				<p:column headerText="Active" width="60" style="text-align:center;">
 					<p:selectBooleanCheckbox value="#{cidade.active}" />
+				</p:column>
+
+				<p:column width="40">
+					<p:commandButton icon="ui-icon-pencil"
+						action="#{cidadeBean.editar(cidade)}" />
 				</p:column>
 			</p:dataTable>
 		</p:panel>

@@ -2,6 +2,8 @@ package br.com.senai.dao;
 
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -24,7 +26,7 @@ public class CidadeDAO {
 	@SuppressWarnings("unchecked")
 	public List<Cidade> listarcidades() {
 		EntityManager entityManager = JPAUtil.getEntityManager();
-		Query query = entityManager.createQuery("from Cidade Order By nomeCidade");
+		Query query = entityManager.createQuery("from Cidade Order By estadoCidade, nomeCidade");
 		return query.getResultList();
 	}
 

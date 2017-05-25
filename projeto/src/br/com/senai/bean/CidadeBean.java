@@ -20,18 +20,26 @@ public class CidadeBean {
 	private Cidade cidade = new Cidade();
 	private List<Estado> estados = Arrays.asList(Estado.values());
 	private List<Cidade> cidades = new ArrayList<Cidade>();
+	public Thread currentThread;
 
 	public CidadeBean() {
-		//cidades = new CidadeDAO().listarcidades();
+		cidades = new CidadeDAO().listarcidades();
 	}
 
-	public String salvar() {
-		cidades.add(cidade);
-		//new CidadeDAO().salvar(cidade);
-		//cidades = new CidadeDAO().listarcidades();
+	public String salvar() throws InterruptedException {
+		// cidades.add(cidade);
+		currentThread = Thread.currentThread();
+		Thread.sleep(500);
+		new CidadeDAO().salvar(cidade);
+		cidades = new CidadeDAO().listarcidades();
 		cidade = new Cidade();
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cidade salva com sucesso!"));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Sucesso", "Cidade salva com sucesso!"));
 		return "cidade_list?faces-redirect=true";
+	}
+
+	public String editar(Cidade cidade) {
+		this.cidade = cidade;
+		return "cidade_cad?faces-redirect=true";
 	}
 
 	public Cidade getCidade() {
