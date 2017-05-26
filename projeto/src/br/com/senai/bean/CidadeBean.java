@@ -20,7 +20,7 @@ public class CidadeBean {
 	private Cidade cidade = new Cidade();
 	private List<Estado> estados = Arrays.asList(Estado.values());
 	private List<Cidade> cidades = new ArrayList<Cidade>();
-	public Thread currentThread;
+	private Thread currentThread;
 
 	public CidadeBean() {
 		cidades = new CidadeDAO().listarcidades();

@@ -17,10 +17,32 @@
 		<p:panel header="Cadastro de Cidade">
 			<p:dataTable value="#{fornecedorBean.fornecedores}" var="fornecedor"
 				emptyMessage="Ainda não temos registros para os critérios de busca">
+
+				<p:column headerText="Nome fantasia" filterBy="#{fornecedor.fantasiaFornecedor}">
+					<p:outputLabel value="#{fornecedor.fantasiaFornecedor}" />
+				</p:column>
+				
+				<p:column headerText="CNPJ">
+					<p:outputLabel value="#{fornecedor.cnpjFornecedor}" />
+				</p:column>
+				
+				<p:column headerText="Email">
+					<p:outputLabel value="#{fornecedor.emailFornecedor}" />
+				</p:column>
+				
+				<p:column headerText="Fone A">
+					<p:outputLabel value="#{fornecedor.foneaFornecedor}" />
+				</p:column>
+				
+				<p:column headerText="CEP">
+					<p:outputLabel value="#{fornecedor.cepFornecedor}" />
+				</p:column>
+				
+				<p:column headerText="Editar" width="60">
+					<p:commandButton icon="ui-icon-pencil" action="#{fornecedorBean.editar(fornecedor)}"/>
+				</p:column>
+				
 			</p:dataTable>
-			<p:column headerText="">
-				<p:outputLabel value="#{fornecedor.fantasiaFornecedor}"/>
-			</p:column>
 		</p:panel>
 	</h:form>
 
