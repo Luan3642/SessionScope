@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Insert title here</title>
+</h:head>
+<h:body>
+
+	<ui:include src="/menu.xhtml" />
+
+	<h:form>
+
+		<p:growl id="growl" showDetail="true" sticky="true" />
+
+		<p:panel header="Cadastro de Cliente" id="pnl">
+			<p:panelGrid columns="2">
+
+				<p:outputLabel value="Nome" for="nome" />
+				<p:inputText id="nome" required="true"
+					requiredMessage="O nome do cliente deve ser especificado"
+					value="#{clienteBean.cliente.nomeCliente}" />
+
+				<p:outputLabel value="RG" for="rg" />
+				<p:inputMask id="rg" mask="99.999.999-9" value="#{clienteBean.cliente.nomeCliente}" />
+
+				<p:outputLabel value="CPF" for="cpf" />
+				<p:inputMask id="cpf" required="true" mask="999.999.999-99"
+					requiredMessage="O cpf do cliente deve ser especificado"
+					value="#{clienteBean.cliente.cpfCliente}" />
+
+				<p:outputLabel value="Fone A:" for="fonea" />
+				<p:inputMask mask="(99) 9 9999-9999" id="fonea" required="true"
+					requiredMessage="O cliente necessita manter contato, preencha o Fone A"
+					value="#{clienteBean.cliente.foneaCliente}" />
+
+				<p:outputLabel value="Fone B:" for="foneb" />
+				<p:inputMask mask="(99) 9 9999-9999" id="foneb"
+					value="#{clienteBean.cliente.fonebCliente}" />
+
+				<p:outputLabel value="Cidade" for="cidade" />
+				<p:inputText id="cidade" required="true"
+					requiredMessage="A cidade do cliente deve ser informada"
+					value="#{clienteBean.cliente.cidadeCliente}" />
+
+				<p:outputLabel value="Endereço" for="endereco" />
+				<p:inputText id="endereco" required="true"
+					requiredMessage="O endereço do cliente deve ser especificado"
+					value="#{clienteBean.cliente.enderecoCliente}" />
+
+				<p:outputLabel value="CEP" for="cep" />
+				<p:inputMask mask="99.999-999" id="cep" required="true"
+					requiredMessage="O Campo CEP deve ser preenchido corretamente"
+					value="#{clienteBean.cliente.cepCliente}" />
+
+				<p:outputLabel value="Data de Cadastro" id="datacadastro" />
+				<p:calendar value="#{clienteBean.cliente.cadastroCliente}"
+					pattern="dd/MM/yy" maxdate="#{clienteBean.cliente.lastUpdae}"
+					required="true"
+					requiredMessage="Preencha campo 'Data do cadastro:'" />
+
+				<p:outputLabel />
+				<p:commandButton value="Salvar" action="#{clienteBean.salvar}"
+					update="@form" icon="ui-icon-disk" id="saveBtn" />
+
+			</p:panelGrid>
+		</p:panel>
+
+		<p:blockUI block="pnl" trigger="saveBtn">
+			<p:graphicImage value="#{resource['images:pageloader.gif']}" />
+		</p:blockUI>
+
+	</h:form>
+
+</h:body>
+</html>
