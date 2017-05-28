@@ -7,7 +7,7 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Insert title here</title>
+	<title>SENAI - Cadastro de Clientes</title>
 </h:head>
 <h:body>
 
@@ -15,7 +15,7 @@
 
 	<h:form>
 
-		<p:growl id="growl" showDetail="true" sticky="true" />
+		<p:growl id="growl" sticky="true" />
 
 		<p:panel header="Cadastro de Cliente" id="pnl">
 			<p:panelGrid columns="2">
@@ -26,12 +26,14 @@
 					value="#{clienteBean.cliente.nomeCliente}" />
 
 				<p:outputLabel value="RG" for="rg" />
-				<p:inputMask id="rg" mask="99.999.999-9" value="#{clienteBean.cliente.nomeCliente}" />
+				<p:inputMask mask="99.999.999-9" id="rg"
+					value="#{clienteBean.cliente.rgCliente}" />
 
 				<p:outputLabel value="CPF" for="cpf" />
-				<p:inputMask id="cpf" required="true" mask="999.999.999-99"
-					requiredMessage="O cpf do cliente deve ser especificado"
-					value="#{clienteBean.cliente.cpfCliente}" />
+				<p:inputMask id="cpf" mask="999.999.999-99" required="true"
+					requiredMessage="O cpf deve ser especificado"
+					value="#{clienteBean.cliente.cpfCliente}" type="text">
+				</p:inputMask>
 
 				<p:outputLabel value="Fone A:" for="fonea" />
 				<p:inputMask mask="(99) 9 9999-9999" id="fonea" required="true"
@@ -54,8 +56,9 @@
 
 				<p:outputLabel value="CEP" for="cep" />
 				<p:inputMask mask="99.999-999" id="cep" required="true"
-					requiredMessage="O Campo CEP deve ser preenchido corretamente"
-					value="#{clienteBean.cliente.cepCliente}" />
+					requiredMessage="O cep deve ser informadao"
+					value="#{clienteBean.cliente.cepCliente}">
+				</p:inputMask>
 
 				<p:outputLabel value="Data de Cadastro" id="datacadastro" />
 				<p:calendar value="#{clienteBean.cliente.cadastroCliente}"

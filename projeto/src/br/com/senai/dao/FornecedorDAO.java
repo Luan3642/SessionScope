@@ -12,6 +12,7 @@ public class FornecedorDAO {
 	public void salvar(Fornecedor fornecedor){
 
 		EntityManager entityManager = JPAUtil.getEntityManager();
+		
 		entityManager.getTransaction().begin();
 		
 		entityManager.merge(fornecedor);

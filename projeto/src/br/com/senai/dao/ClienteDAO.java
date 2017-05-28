@@ -10,6 +10,7 @@ import br.com.senai.model.Cliente;
 public class ClienteDAO {
 
 	public void salvar(Cliente cliente) {
+		
 		EntityManager entityManager = JPAUtil.getEntityManager();
 
 		entityManager.getTransaction().begin();
@@ -19,6 +20,7 @@ public class ClienteDAO {
 		entityManager.getTransaction().commit();
 
 		entityManager.close();
+		
 	}
 
 	@SuppressWarnings("unchecked")

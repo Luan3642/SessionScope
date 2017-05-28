@@ -7,15 +7,15 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>SENAI - Cadastro de Cidades</title>
+	<title>SENAI - Lista de Cidades</title>
 </h:head>
 <h:body>
 
-	<ui:include src="/menu.xhtml"/>
+	<ui:include src="/menu.xhtml" />
 
 	<h:form>
 
-		<p:panel header="Cadastro de Cidade">
+		<p:panel header="Lista de Cidades">
 			<p:dataTable value="#{cidadeBean.cidades}" var="cidade"
 				emptyMessage="Ainda não temos registros para os critérios de busca">
 

@@ -16,12 +16,12 @@ public class Cliente implements Serializable {
 	private Date cadastroCliente = new Date();
 	private String nomeCliente;
 	private String enderecoCliente;
-	private Integer cepCliente;
+	private String cepCliente;
 	private String foneaCliente;
 	private String fonebCliente;
 	private String cidadeCliente;
-	private Integer rgCliente;
-	private Integer cpfCliente;
+	private String rgCliente;
+	private String cpfCliente;
 	private Date lastUpdae = new Date();
 
 	@Id
@@ -50,11 +50,11 @@ public class Cliente implements Serializable {
 		this.enderecoCliente = enderecoCliente;
 	}
 
-	public Integer getCepCliente() {
+	public String getCepCliente() {
 		return cepCliente;
 	}
 
-	public void setCepCliente(Integer cepCliente) {
+	public void setCepCliente(String cepCliente) {
 		this.cepCliente = cepCliente;
 	}
 
@@ -82,22 +82,22 @@ public class Cliente implements Serializable {
 		this.cidadeCliente = cidadeCliente;
 	}
 
-	public Integer getRgCliente() {
+	public String getRgCliente() {
 		return rgCliente;
 	}
 
-	public void setRgCliente(Integer rgCliente) {
+	public void setRgCliente(String rgCliente) {
 		this.rgCliente = rgCliente;
 	}
 
-	public Integer getCpfCliente() {
+	public String getCpfCliente() {
 		return cpfCliente;
 	}
 
-	public void setCpfCliente(Integer cpfCliente) {
+	public void setCpfCliente(String cpfCliente) {
 		this.cpfCliente = cpfCliente;
 	}
-	
+
 	public Date getCadastroCliente() {
 		return cadastroCliente;
 	}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>SENAI - Lista de Clientes</title>
+</h:head>
+<h:body>
+
+	<ui:include src="/menu.xhtml"></ui:include>
+
+	<h:form>
+		<p:panel header="Lista de Clientes">
+			<p:dataTable value="#{clienteBean.clientes}" var="cliente"
+			emptyMessage="Ainda não temos registros para os critérios de busca">
+				
+				<p:column headerText="Nome" filterBy="#{cliente.nomeCliente}">
+					<p:outputLabel value="#{cliente.nomeCliente}" />
+				</p:column>
+				
+				<p:column headerText="CPF">
+					<p:outputLabel value="#{cliente.cpfCliente}" />
+				</p:column>
+				
+				<p:column headerText="Fone A">
+					<p:outputLabel value="#{cliente.foneaCliente}" />
+				</p:column>
+				
+				<p:column headerText="Cidade">
+					<p:outputLabel value="#{cliente.cidadeCliente}" />
+				</p:column>
+				
+				<p:column headerText="Endereço">
+					<p:outputLabel value="#{cliente.enderecoCliente}" />
+				</p:column>
+				
+				<p:column headerText="Cep">
+					<p:outputLabel value="#{cliente.cepCliente}" />
+				</p:column>
+				
+				<p:column width="40">
+					<p:commandButton icon="ui-icon-pencil" action="#{clienteBean.editar(cliente)}" />
+				</p:column>
+				
+			</p:dataTable>
+		</p:panel>
+	</h:form>
+
+</h:body>
+</html>
