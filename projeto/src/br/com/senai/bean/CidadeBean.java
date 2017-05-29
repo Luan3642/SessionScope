@@ -33,13 +33,23 @@ public class CidadeBean {
 		new CidadeDAO().salvar(cidade);
 		cidades = new CidadeDAO().listarcidades();
 		cidade = new Cidade();
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Sucesso", "Cidade salva com sucesso!"));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cidade salva com sucesso!"));
 		return "cidade_list?faces-redirect=true";
 	}
 
 	public String editar(Cidade cidade) {
 		this.cidade = cidade;
 		return "cidade_cad?faces-redirect=true";
+	}
+	
+	public void preparaExclusao(Cidade cidade) {
+		this.cidade = cidade;
+	}
+
+	public void excluir() {
+		new CidadeDAO().delete(cidade);
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cidade deletada com sucesso!"));
+		cidades = new CidadeDAO().listarcidades();
 	}
 
 	public Cidade getCidade() {

@@ -22,6 +22,7 @@ public class Cliente implements Serializable {
 	private String cidadeCliente;
 	private String rgCliente;
 	private String cpfCliente;
+	private boolean active = true;
 	private Date lastUpdae = new Date();
 
 	@Id
@@ -32,6 +33,14 @@ public class Cliente implements Serializable {
 
 	public void setIdCliente(Long idCliente) {
 		this.idCliente = idCliente;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	public String getNomeCliente() {

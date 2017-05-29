@@ -15,8 +15,10 @@
 
 	<h:form>
 
+		<p:growl />
+
 		<p:panel header="Lista de Cidades">
-			<p:dataTable value="#{cidadeBean.cidades}" var="cidade"
+			<p:dataTable value="#{cidadeBean.cidades}" var="cidade" id="tbl"
 				emptyMessage="Ainda não temos registros para os critérios de busca">
 
 				<p:column headerText="Nome Cidade" sortBy="#{cidade.nomeCidade}">
@@ -43,14 +45,29 @@
 				</p:column>
 
 				<p:column headerText="Active" width="60" style="text-align:center;">
-					<p:selectBooleanCheckbox value="#{cidade.active}" />
+					<p:selectBooleanCheckbox value="#{cidade.active}" disabled="true" />
 				</p:column>
 
 				<p:column width="40">
 					<p:commandButton icon="ui-icon-pencil"
 						action="#{cidadeBean.editar(cidade)}" />
 				</p:column>
+
+				<p:column width="40">
+					<p:commandButton icon="ui-icon-closethick" update="@form"
+						actionListener="#{cidadeBean.preparaExclusao(cidade)}"
+						oncomplete="PF('confirmaExclusaoDialog').show();" />
+				</p:column>
 			</p:dataTable>
+
+			<p:confirmDialog message="Deseja realmente excluir esta Cidade?"
+				widgetVar="confirmaExclusaoDialog">
+				<p:commandButton value="Sim" action="#{cidadeBean.excluir()}"
+					oncomplete="PF('confirmaExclusaoDialog').hide();" update="@form" />
+				<p:commandButton value="Não"
+					oncomplete="PF('confirmaExclusaoDialog').hide();" />
+			</p:confirmDialog>
+
 		</p:panel>
 	</h:form>
 

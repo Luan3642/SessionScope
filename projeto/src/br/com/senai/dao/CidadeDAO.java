@@ -27,5 +27,21 @@ public class CidadeDAO {
 		Query query = entityManager.createQuery("from Cidade Order By estadoCidade, nomeCidade");
 		return query.getResultList();
 	}
+	
+	public void delete(Cidade cidade) {
+		
+		EntityManager entityManager = JPAUtil.getEntityManager();
+
+		entityManager.getTransaction().begin();
+		
+		cidade = entityManager.merge(cidade);
+		
+		entityManager.remove(cidade);
+		
+		entityManager.getTransaction().commit();
+		
+		entityManager.close();
+		
+	}
 
 }
